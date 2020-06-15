@@ -58,5 +58,8 @@ class Contacto:
             sql = (f"update Contactos set nombre=?,apellidop=?,apellidom=?,telefono=?,correo=? where telefono={num}")
             cursor.execute(sql,datos)
             conexion.commit()
-        finally:
+            return True
+        except:
             conexion.close()
+            messagebox.showwarning("Numero registrado","Ya has registrado un contacto con ese numero");
+            
