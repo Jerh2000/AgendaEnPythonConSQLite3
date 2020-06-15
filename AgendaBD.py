@@ -129,15 +129,17 @@ class Agenda:
         else:
             if(self.telefono.get().isdigit()):
                 datos = (self.nombre.get(),self.apellidoP.get(),self.apellidoM.get(),self.telefono.get(),self.correo.get())
-                self.contacto.Actualizar(datos,self.numModificar)
-                messagebox.showinfo("Información", "Los datos fueron modificados")
-                self.nombre.set("")
-                self.apellidoP.set("")
-                self.apellidoM.set("")
-                self.telefono.set("")
-                self.correo.set("")
-                self.cargar()
-                self.btnGuardarC.place_forget()
+                a = False
+                a = self.contacto.Actualizar(datos,self.numModificar)
+                if a:
+                    messagebox.showinfo("Información", "Los datos fueron modificados")
+                    self.nombre.set("")
+                    self.apellidoP.set("")
+                    self.apellidoM.set("")
+                    self.telefono.set("")
+                    self.correo.set("")
+                    self.cargar()
+                    self.btnGuardarC.place_forget()
             else:
                 messagebox.showwarning("Dato no valido","Ingrese un numero de telefono valido")
         
